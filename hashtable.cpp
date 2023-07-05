@@ -50,23 +50,6 @@ public:
   }
 };
 
-class HashTable
-{
-public:
-  LinkedList table[SIZE];
-
-  int hash_function(int key)
-  {
-    return key % SIZE;
-  }
-
-  int search(int key)
-  {
-    int index = hash_function(key);
-    return table[index].search(key);
-  }
-};
-
 int main()
 {
   HashTable hash_table;
