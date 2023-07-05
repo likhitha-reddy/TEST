@@ -49,18 +49,3 @@ public:
     return -1;
   }
 };
-
-int main()
-{
-  HashTable hash_table;
-
-  hash_table.insert(1, 100);
-  hash_table.insert(2, 50);
-  hash_table.insert(3, 40);
-
-  cout << hash_table.search(1) << endl;
-  cout << hash_table.search(2) << endl;
-  cout << hash_table.search(3) << endl;
-
-  return 0;
-}
