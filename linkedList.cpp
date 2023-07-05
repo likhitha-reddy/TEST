@@ -61,27 +61,6 @@ void Linkedlist::insertBeg(int data)
     return;
 }
 
-void Linkedlist::printList()
-{
-
-    Node *temp = head;
-
-    if (head == NULL)
-    {
-
-        cout << "List empty" << endl;
-
-        return;
-    }
-
-    while (temp != NULL)
-    {
-
-        cout << temp->data << " ";
-
-        temp = temp->next;
-    }
-}
 bool Linkedlist::search(int val)
 {
     Node *temp1 = head;
