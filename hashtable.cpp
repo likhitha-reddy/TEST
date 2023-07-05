@@ -49,3 +49,41 @@ public:
     return -1;
   }
 };
+
+class HashTable
+{
+public:
+  LinkedList table[SIZE];
+
+  int hash_function(int key)
+  {
+    return key % SIZE;
+  }
+
+  void insert(int key, int value)
+  {
+    int index = hash_function(key);
+    table[index].insert(key, value);
+  }
+
+  int search(int key)
+  {
+    int index = hash_function(key);
+    return table[index].search(key);
+  }
+};
+
+int main()
+{
+  HashTable hash_table;
+
+  hash_table.insert(1, 100);
+  hash_table.insert(2, 50);
+  hash_table.insert(3, 40);
+
+  cout << hash_table.search(1) << endl;
+  cout << hash_table.search(2) << endl;
+  cout << hash_table.search(3) << endl;
+
+  return 0;
+}
