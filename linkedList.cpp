@@ -1,9 +1,10 @@
 #include <iostream>
 using namespace std;
-class Node {
+class Node
+{
 public:
     int data;
-    Node* next;
+    Node *next;
     Node()
     {
         data = 0;
@@ -15,10 +16,11 @@ public:
         this->next = NULL;
     }
 };
-class Linkedlist {
-    
+class Linkedlist
+{
+
 public:
-Node* head;
+    Node *head;
     Linkedlist() { head = NULL; }
     void insertNode(int);
     void insertBeg(int);
@@ -26,139 +28,96 @@ Node* head;
     void deleteNode(int);
     bool search(int);
 };
-void Linkedlist::deleteNode(int nodeOffset)
-{
-    Node *temp1 = head, *temp2 = NULL;
-    int ListLen = 0;
-    if (head == NULL) {
-        cout << "List empty." << endl;
-        return;
-    }
-    while (temp1 != NULL) {
-        temp1 = temp1->next;
-        ListLen++;
-    }
-    if (ListLen < nodeOffset) {
-        cout << "Index out of range"
-             << endl;
-        return;
-    }
-    temp1 = head;
-    if (nodeOffset == 1) {
-        head = head->next;
-        delete temp1;
-        return;
-    }
-    while (nodeOffset-- > 1) {
- 
 
-    
-
-        temp2 = temp1;
-        temp1 = temp1->next;
-
-    }
-    temp2->next = temp1->next;
- 
-    delete temp1;
-}
 void Linkedlist::insertNode(int data)
 {
 
-    Node* newNode = new Node(data);
- 
-    if (head == NULL) {
+    Node *newNode = new Node(data);
+
+    if (head == NULL)
+    {
 
         head = newNode;
 
         return;
-
     }
- 
-    Node* temp = head;
 
-    while (temp->next != NULL) {
- 
+    Node *temp = head;
+
+    while (temp->next != NULL)
+    {
+
         temp = temp->next;
-
     }
- 
+
     temp->next = newNode;
 }
 void Linkedlist::insertBeg(int data)
 {
 
-    Node* newNode = new Node(data);
-     newNode->next=head;
-     head=newNode;
-     return;     
-
-    
+    Node *newNode = new Node(data);
+    newNode->next = head;
+    head = newNode;
+    return;
 }
- 
+
 void Linkedlist::printList()
 {
 
-    Node* temp = head;
- 
-    if (head == NULL) {
+    Node *temp = head;
+
+    if (head == NULL)
+    {
 
         cout << "List empty" << endl;
 
         return;
-
     }
- 
 
-    
-
-    while (temp != NULL) {
+    while (temp != NULL)
+    {
 
         cout << temp->data << " ";
 
         temp = temp->next;
-
     }
 }
 bool Linkedlist::search(int val)
 {
     Node *temp1 = head;
     int ListLen = 0;
-    if (head == NULL) {
+    if (head == NULL)
+    {
         cout << "List empty." << endl;
         return false;
     }
-    while (temp1 != NULL) {
+    while (temp1 != NULL)
+    {
         ListLen++;
-        if(temp1->data==val)
+        if (temp1->data == val)
         {
-            cout<<"found at index"<<(ListLen-1);
+            cout << "found at index" << (ListLen - 1);
             return true;
         }
         temp1 = temp1->next;
-        
     }
-    
+
     return false;
-    
 }
-void concat(Linkedlist l1,Linkedlist l2)
+void concat(Linkedlist l1, Linkedlist l2)
 {
-    Node* temp=l1.head;
-    while(temp->next!=NULL)
+    Node *temp = l1.head;
+    while (temp->next != NULL)
     {
-        temp=temp->next;
+        temp = temp->next;
     }
-    temp->next=l2.head;
+    temp->next = l2.head;
 }
-
- 
-
 
 int main()
 {
 
-    Linkedlist list,list2;
+    Linkedlist list, list2;
     list.insertNode(1);
     list.insertNode(2);
     list.insertNode(3);
@@ -174,7 +133,7 @@ int main()
     list.printList();
     cout << endl;
     cout << "\n List 2: ";
-     
+
     list2.insertNode(11);
     list2.insertNode(12);
     list2.insertNode(13);
@@ -190,7 +149,7 @@ int main()
     list2.printList();
     cout << endl;
     list2.search(4);
-    concat(list,list2);
+    concat(list, list2);
     cout << "\n after concatination: ";
     list.printList();
 
