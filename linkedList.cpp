@@ -83,6 +83,16 @@ void Linkedlist::printList()
     }
 }
 
+void concat(Linkedlist l1, Linkedlist l2)
+{
+    Node *temp = l1.head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = l2.head;
+}
+
 int main()
 {
 
