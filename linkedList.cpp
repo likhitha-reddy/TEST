@@ -52,6 +52,14 @@ void Linkedlist::insertNode(int data)
 
     temp->next = newNode;
 }
+void Linkedlist::insertBeg(int data)
+{
+
+    Node *newNode = new Node(data);
+    newNode->next = head;
+    head = newNode;
+    return;
+}
 
 void Linkedlist::printList()
 {
