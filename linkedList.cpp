@@ -82,28 +82,7 @@ void Linkedlist::printList()
         temp = temp->next;
     }
 }
-bool Linkedlist::search(int val)
-{
-    Node *temp1 = head;
-    int ListLen = 0;
-    if (head == NULL)
-    {
-        cout << "List empty." << endl;
-        return false;
-    }
-    while (temp1 != NULL)
-    {
-        ListLen++;
-        if (temp1->data == val)
-        {
-            cout << "found at index" << (ListLen - 1);
-            return true;
-        }
-        temp1 = temp1->next;
-    }
 
-    return false;
-}
 void concat(Linkedlist l1, Linkedlist l2)
 {
     Node *temp = l1.head;
